@@ -1,6 +1,6 @@
 module Spree
   class StoreCredit < ActiveRecord::Base
-    attr_accessible :amount, :reason, :payment_mode 
+    # attr_accessible :amount, :reason, :payment_mode 
     attr_accessor :disable_negative_payment_mode
 
     belongs_to :transactioner, :class_name => Spree.user_class

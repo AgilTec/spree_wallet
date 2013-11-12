@@ -24,7 +24,7 @@ Spree::CheckoutController.class_eval do
           end
         end
       end
-      params[:order]
+      params[:order].permit!
     end
 
     def validate_payments
