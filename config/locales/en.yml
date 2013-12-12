@@ -2,6 +2,18 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  activerecord:
+    attributes:
+      spree/store_credit:
+        amount: Amount
+        payment_mode: Payment Mode
+        reason: Reason
+        type: Type
+    models:
+      spree/credit:
+        payment_refund: 'Payment Refund'
+        refund: 'Refund'
+        bank: 'Bank'
   spree:
     store_credits_action: "Store Credits Action"
     listing_store_credits: "Listing Store Credits"

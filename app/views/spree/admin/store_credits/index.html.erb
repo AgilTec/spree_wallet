@@ -36,7 +36,7 @@
 
 <% content_for :page_title do %>
   <% if @user %>
-    <%= Spree.t(:store_credits_for_user_email, user_email: @user.email) %> (<%= Spree.t(:current_balance_for_user, total: @user.store_credits_total) %>)
+    <%= Spree.t(:store_credits_for_user_email, user_email: @user.email) %> (<%= Spree.t(:current_balance_for_user, total: Money.new(spree_current_user.store_credits_total*100, Spree::Config[:currency]).format(with_currency: true)) %>)
   <% else %>
     <%= Spree.t(:listing_store_credits) %>
   <% end %>
@@ -45,8 +45,8 @@
 <% if @user %>
   <% content_for :page_actions do %>
     <li>
-      <%= button_link_to Spree.t(:new_credit), new_admin_user_credit_path(:user_id => @user) %>
-      <%= button_link_to Spree.t(:new_debit), new_admin_user_debit_path(:user_id => @user) %>
+      <%= link_to Spree.t(:new_credit), new_admin_user_credit_path(:user_id => @user), class: "button icon-plus" %>
+      <%= link_to Spree.t(:new_debit), new_admin_user_debit_path(:user_id => @user), class: "button icon-plus" %>
     </li>
   <% end %>
 <% end %>
@@ -87,7 +87,7 @@
           <td class="align-center"><%= store_credit.reason %></td>
           <td class="align-center"><%= store_credit.class::PAYMENT_MODE.key(store_credit.payment_mode) %>
         <% end %>
-        <td class="align-center"><%= store_credit.type.demodulize %></td>
+        <td class="align-center"><%= Spree.t("#{store_credit.type.demodulize.downcase}") %></td>
         <% unless @user %>
           <td><%= link_to Spree.t(:credit), new_admin_user_credit_path(:user_id => store_credit.user) %> | <%= link_to Spree.t(:debit), new_admin_user_debit_path(:user_id => store_credit.user) %> | <%= link_to Spree.t(:view), admin_user_store_credits_path(:user_id => store_credit.user) %></td>
         <% end %>
