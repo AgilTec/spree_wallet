@@ -1,17 +1,15 @@
-ruby '2.0.0'
-
 source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,20 +36,17 @@ gem 'multi_json'
 
 
 group :test do
-  gem 'factory_girl_rails'
-  gem 'email_spec'
-
-  gem 'ffaker'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'email_spec', '~> 1.5.0'
   gem 'shoulda-matchers'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'selenium-webdriver'
   gem 'launchy'
  # gem 'debugger'
 end
 
+
+gem 'spree', github: 'spree/spree', branch: 'master'
+gem 'spree_auth_devise', github: 'AgilTec/spree_auth_devise', branch: 'master'
+
 gemspec
 
-gem 'spree', github: 'spree/spree'
-gem 'spree_auth_devise', github: 'spree/spree_auth_devise'
 
